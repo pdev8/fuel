@@ -1,8 +1,10 @@
 ﻿@{
     ViewBag.Title = "Contact";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container" ng-controller="trainerController as tc">
+<div class="container">
     <div class="row" ng-controller="userRoleController as urc">
         <div class="panel panel-default col-md-6">
             <form>
@@ -27,13 +29,6 @@
                     <label>Bio</label>
                     <textarea class="form-control" ng-model="urc.trainerModel.bio"></textarea>
                 </div>
-
-                @*<div class="form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input">
-                            Check me out
-                        </label>
-                    </div>*@
                 <button type="button" class="btn btn-primary" ng-click="urc.postTrainer()">Post</button>
                 <button type="button" class="btn btn-primary">Get All</button>
                 <button type="button" class="btn btn-primary">Get By Id</button>
@@ -41,7 +36,7 @@
             </form>
         </div>
         <div class="panel panel-default col-md-6">
-            <div>
+            <div ng-cloak>
                 <div class="panel-heading">
                     <p>Name: {{urc.userProfileModel.firstName}} {{urc.userProfileModel.lastName}}</p>
                     <p>Email: {{urc.userProfileModel.email}}</p>
@@ -59,11 +54,12 @@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/app/app.js"></script>
+    
+    @* Controllers *@
     <script src="~/Scripts/Controllers/UserRoleController.js"></script>
     <script src="~/Scripts/Controllers/TrainerController.js"></script>
 
+    @* Services *@    
     <script src="~/Services/UserRoleService.js"></script>
     <script src="~/Services/TrainerService.js"></script>
-
-
 }

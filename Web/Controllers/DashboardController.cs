@@ -14,5 +14,10 @@ namespace Fuel.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult WebScrapePaul()
+        {
+            return View();
+        }
     }
 }

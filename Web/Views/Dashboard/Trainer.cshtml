@@ -1,8 +1,68 @@
 ﻿
 @{
     ViewBag.Title = "Trainer";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Trainer</h2>
+<div class="container">
+    <div class="row" ng-controller="userRoleController as urc">
+        <div class="panel panel-default col-md-6">
+            <form>
+                <div class="form-group">
+                    <label for="userFirstName">Enter your first name</label>
+                    <input type="text" class="form-control" id="userFirstName" aria-describedby="emailHelp" placeholder="First Name" ng-model="urc.userProfileModel.firstName">
+                </div>
+                <div class="form-group">
+                    <label for="userLastName">Enter your last name</label>
+                    <input type="text" class="form-control" id="userLastName" placeholder="Last Name" ng-model="urc.userProfileModel.lastName">
+                </div>
+                <div class="form-group">
+                    <label for="userEmailAddress">Enter a email</label>
+                    <input type="email" class="form-control" id="userEmailAddress" aria-describedby="emailHelp" placeholder="Email" ng-model="urc.userProfileModel.email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select class="form-control" ng-model="urc.userProfileModel.userRoleId" ng-options="role.Id as role.RoleType for role in urc.userRoles"></select>
+                </div>
+                <div class="form-group">
+                    <label>Bio</label>
+                    <textarea class="form-control" ng-model="urc.trainerModel.bio"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="urc.postTrainer()">Post</button>
+                <button type="button" class="btn btn-primary">Get All</button>
+                <button type="button" class="btn btn-primary">Get By Id</button>
+                <button type="button" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+        <div class="panel panel-default col-md-6">
+            <div ng-cloak>
+                <div class="panel-heading">
+                    <p>Name: {{urc.userProfileModel.firstName}} {{urc.userProfileModel.lastName}}</p>
+                    <p>Email: {{urc.userProfileModel.email}}</p>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-danger btn-sm">Update</button>
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+
+    @* Controllers *@
+    <script src="~/Scripts/Controllers/UserRoleController.js"></script>
+    <script src="~/Scripts/Controllers/TrainerController.js"></script>
+
+    @* Services *@
+    <script src="~/Services/UserRoleService.js"></script>
+    <script src="~/Services/TrainerService.js"></script>
+}
+
+
+
 
