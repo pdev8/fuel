@@ -36,7 +36,7 @@
                 Menu
                 <i class="fa fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive" ng-controller="loginController as lc">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#about">About</a>
@@ -45,10 +45,10 @@
                         <a class="nav-link js-scroll-trigger" href="#download">Download</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" href="#" ng-click="lc.loginAsClient()">Client Login</a>
                     </li>
-                    <li class="nav-item" ng-controller="loginController as lc">
-                        <a class="nav-link js-scroll-trigger" href="#" ng-click="lc.login()">Login</a>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#" ng-click="lc.loginAsTrainer()">Trainer Login</a>
                     </li>
                 </ul>
             </div>
