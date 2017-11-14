@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Fuel.Web.Controllers
+namespace Fuel.Web.Controllers.Api
 {
     public class DashboardController : Controller
     {
