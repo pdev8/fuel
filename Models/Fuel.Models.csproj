@@ -41,8 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\UserRole.cs" />
+    <Compile Include="Domain\Client.cs" />
     <Compile Include="Domain\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\ClientAddRequest.cs" />
+    <Compile Include="Request\ClientUpdateRequest.cs" />
     <Compile Include="Request\TrainerAddRequest.cs" />
     <Compile Include="Request\TrainerUpdateRequest.cs" />
     <Compile Include="Request\UserRoleAddRequest.cs" />
