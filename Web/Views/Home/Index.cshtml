@@ -26,12 +26,12 @@
     <link href="~/Content/grayscale.css" rel="stylesheet" />
 </head>
 
-<body id="page-top" ng-app="fuelApp" ng-controller="trainerController">
+<body id="page-top" ng-app="fuelApp" ng-controller="trainerController as tc">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Fuel</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fa fa-bars"></i>
@@ -47,6 +47,9 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                     </li>
+                    <li class="nav-item" ng-controller="loginController as lc">
+                        <a class="nav-link js-scroll-trigger" href="#" ng-click="lc.login()">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -58,7 +61,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h1 class="brand-heading">Grayscale</h1>
+                        <h1 class="brand-heading">Go Fuel Yourself</h1>
                         <p class="intro-text">
                             A free, responsive, one page Bootstrap theme.
                             <br>Created by Start Bootstrap.
@@ -169,6 +172,8 @@
 
     <script src="~/Scripts/app/app.js"></script>
     <script src="~/Scripts/Controllers/TrainerController.js"></script>
+    <script src="~/Scripts/Controllers/LoginController.js"></script>
+
     <script src="~/Services/TrainerService.js"></script>
 </body>
 
