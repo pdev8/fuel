@@ -7,6 +7,7 @@
         var vm = this;
 
         vm.loginAsTrainer = _loginAsTrainer;
+        vm.loginAsClient = _loginAsClient;
 
         vm.$onInit = _init;
 
@@ -18,5 +19,11 @@
             console.log("logged in");
             location.href = "/Home/Contact";
         }
+
+        function _loginAsClient() {
+            console.log("logged in");
+            location.href = "/Home/About";
+        }
+
     }
 })();
