@@ -12,27 +12,27 @@ using Fuel.Services.Interfaces;
 
 namespace Fuel.Services.Services
 {
-    public class ClientService : BaseService, IClientService
+    public class UserProfileService : BaseService, IUserProfileService
     {
-        //////////// GET ALL CLIENTS /////////////
-        public IEnumerable<Client> GetAll()
+        //////////// GET ALL USER PROFILES /////////////
+        public IEnumerable<UserProfile> GetAll()
         {
             DbCmdDef cmdDef = new DbCmdDef()
             {
-                DbCommandText = "dbo.Client_SelectAll",
+                DbCommandText = "dbo.UserProfile_SelectAll",
                 DbCommandType = CommandType.StoredProcedure
             };
-            return Adapter.LoadObject<Client>(cmdDef);
+            return Adapter.LoadObject<UserProfile>(cmdDef);
         }
 
-        //////////// GET CLIENTS BY ID /////////////
-        public Client GetById(int id)
+        //////////// GET USER PROFILE BY ID /////////////
+        public UserProfile GetById(int id)
         {
             try
             {
-                return Adapter.LoadObject<Client>(new DbCmdDef()
+                return Adapter.LoadObject<UserProfile>(new DbCmdDef()
                 {
-                    DbCommandText = "dbo.Client_SelectById",
+                    DbCommandText = "dbo.UserProfile_SelectById",
                     DbCommandType = CommandType.StoredProcedure,
                     DbParameters = new[]
                     {
@@ -46,20 +46,22 @@ namespace Fuel.Services.Services
             }
         }
 
-        //////////// INSERT CLIENT /////////////
-        public int Insert(ClientAddRequest model)
+        //////////// INSERT USER PROFILE /////////////
+        public int Insert(UserProfileAddRequest model)
         {
             int id = 0;
 
             DbCmdDef cmdDef = new DbCmdDef
             {
-                DbCommandText = "dbo.Client_Insert",
+                DbCommandText = "dbo.UserProfile_Insert",
                 DbCommandType = CommandType.StoredProcedure,
-                DbParameters = new[]
+                DbParameters = new []
                 {
-                    SqlDbParameter.Instance.BuildParameter("@UserProfileId", model.UserProfileId, SqlDbType.Int),
-                    SqlDbParameter.Instance.BuildParameter("@TrainerId", model.TrainerId, SqlDbType.Int),
-                    SqlDbParameter.Instance.BuildParameter("@PlanId", model.PlanId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@FirstName", model.FirstName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@LastName", model.LastName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@Email", model.Email, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@UserRoleId", model.UserRoleId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@ProfileImageUrl", model.ProfileImageUrl, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Id", id, SqlDbType.Int, paramDirection: ParameterDirection.Output)
                 }
             };
@@ -73,31 +75,32 @@ namespace Fuel.Services.Services
         }
 
         //////////// UPDATE USER PROFILE BY ID /////////////
-        public void Update(ClientUpdateRequest model)
+        public void Update(UserProfileUpdateRequest model)
         {
             DbCmdDef cmdDef = new DbCmdDef
             {
-                DbCommandText = "dbo.Client_UpdateById",
+                DbCommandText = "dbo.UserProfile_UpdateById",
                 DbCommandType = CommandType.StoredProcedure,
                 DbParameters = new[]
                 {
-                    SqlDbParameter.Instance.BuildParameter("@UserProfileId", model.UserProfileId, SqlDbType.Int),
-                    SqlDbParameter.Instance.BuildParameter("@TrainerId", model.TrainerId, SqlDbType.Int),
-                    SqlDbParameter.Instance.BuildParameter("@PlanId", model.PlanId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@FirstName", model.FirstName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@LastName", model.LastName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@Email", model.Email, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@UserRoleId", model.UserRoleId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@ProfileImageUrl", model.ProfileImageUrl, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Id", model.Id, SqlDbType.Int)
                 }
             };
 
             Adapter.ExecuteQuery(cmdDef);
-
         }
 
         //////////// DELETE USER PROFILE BY ID /////////////
-        public void Delete(int id)
+        public void DeleteById(int id)
         {
             DbCmdDef cmdDef = new DbCmdDef
             {
-                DbCommandText = "dbo.Client_DeleteById",
+                DbCommandText = "dbo.UserProfile_DeleteById",
                 DbCommandType = CommandType.StoredProcedure,
                 DbParameters = new[]
                 {
@@ -106,8 +109,6 @@ namespace Fuel.Services.Services
             };
 
             Adapter.ExecuteQuery(cmdDef);
-
         }
-
     }
 }

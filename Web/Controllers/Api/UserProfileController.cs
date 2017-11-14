@@ -13,23 +13,23 @@ using MVCApp.Models.Response;
 namespace Fuel.Web.Controllers.Api
 {
     [AllowAnonymous]
-    [RoutePrefix("api/Clients")]
-    public class ClientController : ApiController
+    [RoutePrefix("api/UserProfiles")]
+    public class UserProfileController : ApiController
     {
-        IClientService _clientservice;
+        IUserProfileService _userProfileService;
 
-        public ClientController(IClientService clientservice)
+        public UserProfileController(IUserProfileService userProfileService)
         {
-            _clientservice = clientservice;
+            _userProfileService = userProfileService;
         }
 
         [Route(), HttpGet]
-        public HttpResponseMessage GetAllClients()
+        public HttpResponseMessage GetAllUserProfiles()
         {
             try
             {
-                ItemsResponse<Client> response = new ItemsResponse<Client>();
-                response.Items = _clientservice.GetAll();
+                ItemsResponse<UserProfile> response = new ItemsResponse<UserProfile>();
+                response.Items = _userProfileService.GetAll();
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception ex)
@@ -39,12 +39,12 @@ namespace Fuel.Web.Controllers.Api
         }
 
         [Route("{id:int}"), HttpGet]
-        public HttpResponseMessage GetClientById(int id)
+        public HttpResponseMessage GetUserProfileById(int id)
         {
             try
             {
-                ItemResponse<Client> response = new ItemResponse<Client>();
-                response.Item = _clientservice.GetById(id);
+                ItemResponse<UserProfile> response = new ItemResponse<UserProfile>();
+                response.Item = _userProfileService.GetById(id);
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -54,7 +54,7 @@ namespace Fuel.Web.Controllers.Api
         }
 
         [Route(), HttpPost]
-        public HttpResponseMessage PostClient(ClientAddRequest model)
+        public HttpResponseMessage PostUserProfile(UserProfileAddRequest model)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Fuel.Web.Controllers.Api
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
                 ItemResponse<int> response = new ItemResponse<int>();
-                response.Item = _clientservice.Insert(model);
+                response.Item = _userProfileService.Insert(model);
                 return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception e)
@@ -73,7 +73,7 @@ namespace Fuel.Web.Controllers.Api
         }
 
         [Route("{id:int}"), HttpPut]
-        public HttpResponseMessage UpdateClient(ClientUpdateRequest model)
+        public HttpResponseMessage UpdateUserProfile(UserProfileUpdateRequest model)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Fuel.Web.Controllers.Api
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 }
-                _clientservice.Update(model);
+                _userProfileService.Update(model);
                 return Request.CreateResponse(HttpStatusCode.OK, "OK");
             }
             catch (Exception e)
@@ -91,11 +91,11 @@ namespace Fuel.Web.Controllers.Api
         }
 
         [Route("{id:int}"), HttpDelete]
-        public HttpResponseMessage DeleteClient(int id)
+        public HttpResponseMessage DeleteUserProfile(int id)
         {
             try
             {
-                _clientservice.Delete(id);
+                _userProfileService.DeleteById(id);
                 return Request.CreateResponse(HttpStatusCode.OK, "OK");
             }
             catch (Exception e)
