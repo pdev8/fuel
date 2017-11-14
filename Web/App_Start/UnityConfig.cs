@@ -35,6 +35,7 @@ namespace Fuel.Web
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ITrainerService, TrainerService>();
+            container.RegisterType<IUserRoleService, UserRoleService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             config.DependencyResolver = new UnityResolver(container);
