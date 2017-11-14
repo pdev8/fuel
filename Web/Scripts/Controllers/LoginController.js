@@ -6,7 +6,7 @@
     function LoginController($scope) {
         var vm = this;
 
-        vm.login = _login;
+        vm.loginAsTrainer = _loginAsTrainer;
 
         vm.$onInit = _init;
 
@@ -14,8 +14,9 @@
             console.log("linked");
         }
 
-        function _login() {
+        function _loginAsTrainer() {
             console.log("logged in");
+            location.href = "/Home/Contact";
         }
     }
 })();
