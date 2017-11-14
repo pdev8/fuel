@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fuel.Models.Domain
+namespace Fuel.Models.Request
 {
-    class Class1
+    public class UserRoleAddRequest
     {
+        public string RoleType { get; set; }
     }
 }

@@ -1,17 +1,47 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default col-md-6"  >
+            <form ng-controller="userRoleController as urc">
+                <div class="form-group">
+                    <label for="userFirstName">Enter your first name</label>
+                    <input type="text" class="form-control" id="userFirstName" aria-describedby="emailHelp" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="userLastName">Enter your last name</label>
+                    <input type="text" class="form-control" id="userLastName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="userEmailAddress">Enter a email</label>
+                    <input type="email" class="form-control" id="userEmailAdress" aria-describedby="emailHelp" placeholder="Email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select class="form-control" ng-model="urc.selectedRole" ng-options="role for role in urc.roleTypes"></select>
+                </div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+                @*<div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            Check me out
+                        </label>
+                    </div>*@
+                <button type="button" class="btn btn-primary" ng-click="urc.getRoleTypes()">Create Account</button>
+            </form>
+        </div>
+        <div class="panel panel-default col-md-6">
+            <div></div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/Controllers/UserRoleController.js"></script>
+    <script src="~/Services/UserRoleService.js"></script>
+}
