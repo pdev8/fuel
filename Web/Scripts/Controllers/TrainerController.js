@@ -11,8 +11,8 @@
         vm.deleteTrainer = _deleteTrainer;
 
         vm.trainerModel = {
-            bio: "Bio did change",
-            userProfileId: 77
+            bio: "",
+            userProfileId: 0
         };
 
         vm.$onInit = _init;

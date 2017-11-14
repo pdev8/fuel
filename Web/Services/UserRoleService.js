@@ -15,6 +15,8 @@
             $http.get("/api/UserRoles", { withCredentials: true })
                 .then(function (response) {
                     defer.resolve(response.data);
+                    //console.log(response);
+                    //console.log(response.data);
                 })
                 .catch(function(err) {
                     defer.reject(err);
