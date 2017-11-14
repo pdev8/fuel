@@ -171,6 +171,7 @@
     <Compile Include="Controllers\Api\ClientController.cs" />
     <Compile Include="Controllers\Api\LoginController.cs" />
     <Compile Include="Controllers\Api\TrainerController.cs" />
+    <Compile Include="Controllers\Api\UserProfileController.cs" />
     <Compile Include="Controllers\Api\UserRoleController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -214,6 +215,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Controllers\ClientController.js" />
     <Content Include="Scripts\Controllers\LoginController.js" />
     <Content Include="Scripts\Controllers\TrainerController.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -230,6 +232,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\Controllers\UserProfileController.js" />
     <Content Include="Scripts\Controllers\UserRoleController.js" />
     <Content Include="Scripts\grayscale.js" />
     <Content Include="Scripts\grayscale.min.js" />
@@ -252,7 +255,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Services\ClientService.js" />
     <Content Include="Services\TrainerService.js" />
+    <Content Include="Services\UserProfileService.js" />
     <Content Include="Services\UserRoleService.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
