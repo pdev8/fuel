@@ -57,13 +57,18 @@ namespace Fuel.Services.Services
                 {
                     SqlDbParameter.Instance.BuildParameter("@Bio", model.Bio, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@UserProfileId", model.UserProfileId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@FirstName", model.FirstName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@LastName", model.LastName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@Email", model.Email, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@Gender", model.Gender, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Id", id, SqlDbType.Int, paramDirection: ParameterDirection.Output)
                 }
             };
 
-            Adapter.ExecuteQuery(cmdDef, delegate (IDataParameterCollection collection)
+            Adapter.ExecuteQuery(cmdDef, delegate (IDbDataParameter[] collection)
             {
-                Int32.TryParse(collection["@Id"].ToString(), out id);
+                //Int32.TryParse(collection["@Id"].ToString(), out id);
+                id = collection.GetParmValue<Int32>("@Id");
             });
 
             return id;
@@ -79,6 +84,10 @@ namespace Fuel.Services.Services
                 {
                     SqlDbParameter.Instance.BuildParameter("@Bio", model.Bio, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@UserProfileId", model.UserProfileId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@FirstName", model.FirstName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@LastName", model.LastName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@Email", model.Email, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@Gender", model.Gender, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Id", model.Id, SqlDbType.Int)
                 }
             };

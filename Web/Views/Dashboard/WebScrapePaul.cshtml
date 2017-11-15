@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "WebScrapePaul";
+}
+
+<h3>Web Scraper</h3>
+
+<div class="container">
+    <div class="row" ng-controller="webScraperController as wsc">
+        <div class="panel panel-default col-md-6">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Provide a URL" ng-model="wsc.model.url" />
+                    <select class="form-control" ng-model="wsc.model.url" ng-options="link for link in wsc.urlLinks"></select>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" ng-click="wsc.scrape()">Scrape</button>
+                </div>
+            </form>
+        </div>
+        <div class="panel panel-default col-md-6">
+            <div ng-show="wsc.title">
+                <p>Title of the article: <a ng-href="{{wsc.model.url}}"><strong>{{wsc.title}}</strong></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+
+    <script src="~/Scripts/Controllers/WebScraperController.js"></script>
+    <script src="~/Services/WebScraperService.js"></script>
+}

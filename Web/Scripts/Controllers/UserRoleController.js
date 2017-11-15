@@ -6,8 +6,13 @@
     function UserRoleController($scope, userRoleService) {
         var vm = this;
 
-        vm.selectedRole;
-
+        vm.userProfileModel = {
+            firstName: "",
+            lastName: "",
+            email: "",
+            profileImageUrl: ""
+        };
+        
         vm.userRoles = [];
         vm.roleTypes = [];
         vm.getUserRoles = _getUserRoles;
@@ -21,11 +26,13 @@
 
         function _getUserRoles() {
             userRoleService.GetAllUserRoles()
-                .then(function(data) {
+                .then(function (data) {
                     vm.userRoles = data.Items;
                     _getRoleTypes();
+
+                    console.log(vm.userRoles);
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     console.log(err);
                 });
         }
