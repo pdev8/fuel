@@ -11,7 +11,8 @@ namespace Fuel.Data.Adapter
         int CommandTimeout { get; set; }
         IEnumerable<T> LoadObject<T>(IDbCmdDef cmdDef) where T : class;
         IEnumerable<T> LoadObject<T>(IDbCmdDef cmdDef, Func<IDataReader, T> mapper) where T : class;
-        int ExecuteQuery(IDbCmdDef cmdDef, Action<IDataParameterCollection> returnParameters = null);
+        int ExecuteQuery(IDbCmdDef cmdDef, Action<IDbDataParameter[]> returnParameters = null);
         object ExecuteScalar(IDbCmdDef cmdDef);
+
     }
 }

@@ -5,45 +5,51 @@
 }
 
 <div class="container">
-    <div class="row" ng-controller="userRoleController as urc">
+    <div class="row" ng-controller="trainerController as tc">
         <div class="panel panel-default col-md-6">
             <form>
                 <div class="form-group">
                     <label for="userFirstName">Enter your first name</label>
-                    <input type="text" class="form-control" id="userFirstName" aria-describedby="emailHelp" placeholder="First Name" ng-model="urc.userProfileModel.firstName">
+                    <input type="text" class="form-control" id="userFirstName" aria-describedby="emailHelp" placeholder="First Name" ng-model="tc.trainerModel.firstName">
                 </div>
                 <div class="form-group">
                     <label for="userLastName">Enter your last name</label>
-                    <input type="text" class="form-control" id="userLastName" placeholder="Last Name" ng-model="urc.userProfileModel.lastName">
+                    <input type="text" class="form-control" id="userLastName" placeholder="Last Name" ng-model="tc.trainerModel.lastName">
                 </div>
                 <div class="form-group">
                     <label for="userEmailAddress">Enter a email</label>
-                    <input type="email" class="form-control" id="userEmailAddress" aria-describedby="emailHelp" placeholder="Email" ng-model="urc.userProfileModel.email">
+                    <input type="email" class="form-control" id="userEmailAddress" aria-describedby="emailHelp" placeholder="Email" ng-model="tc.trainerModel.email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
-                <div class="form-group">
-                    <label>Role</label>
-                    <select class="form-control" ng-model="urc.userProfileModel.userRoleId" ng-options="role.Id as role.RoleType for role in urc.userRoles"></select>
-                </div>
+                @*<div class="form-group">
+                        <label>Role</label>
+                        <select class="form-control" ng-model="tc.userProfileModel.userRoleId" ng-options="role.Id as role.RoleType for role in tc.userRoles"></select>
+                    </div>*@
                 <div class="form-group">
                     <label>Bio</label>
-                    <textarea class="form-control" ng-model="urc.trainerModel.bio"></textarea>
+                    <textarea class="form-control" ng-model="tc.trainerModel.bio"></textarea>
                 </div>
-                <button type="button" class="btn btn-primary" ng-click="urc.postTrainer()">Post</button>
-                <button type="button" class="btn btn-primary">Get All</button>
-                <button type="button" class="btn btn-primary">Get By Id</button>
-                <button type="button" class="btn btn-primary">Update</button>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select class="form-control" ng-model="tc.trainerModel.gender" ng-options="gender for gender in tc.genders"></select>
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="tc.postTrainer()">Post</button>
+                <button type="button" class="btn btn-primary" ng-click="tc.getAllTrainers()">Get All</button>
+                @*<button type="button" class="btn btn-primary">Get By Id</button>*@
+                <button type="button" class="btn btn-primary" ng-click="tc.updateTrainer()">Update</button>
             </form>
         </div>
         <div class="panel panel-default col-md-6">
-            <div ng-cloak>
-                <div class="panel-heading">
-                    <p>Name: {{urc.userProfileModel.firstName}} {{urc.userProfileModel.lastName}}</p>
-                    <p>Email: {{urc.userProfileModel.email}}</p>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-danger btn-sm">Update</button>
-                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            <div class="panel-heading">
+                <div ng-cloak ng-show="tc.trainers">
+                    <div class="panel-heading" ng-repeat="trainer in tc.trainers" ng-cloak>
+                        <span>Name: {{trainer.FirstName}} {{trainer.LastName}}</span><br />
+                        <span>Email: {{trainer.Email}}</span><br />
+                        <span>Bio: {{trainer.Bio}}</span><br />
+                        <span>Gender: {{trainer.Gender}}</span><br />
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="tc.editTrainer(trainer)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" ng-click="tc.deleteTrainer(trainer)">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,12 +60,13 @@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/app/app.js"></script>
-    
+
     @* Controllers *@
     <script src="~/Scripts/Controllers/UserRoleController.js"></script>
     <script src="~/Scripts/Controllers/TrainerController.js"></script>
+    <script src="~/Scripts/Controllers/UserProfileController.js"></script>
 
-    @* Services *@    
+    @* Services *@
     <script src="~/Services/UserRoleService.js"></script>
     <script src="~/Scripts/Controllers/UserProfileController.js"></script>
     <script src="~/Services/UserProfileService.js"></script>

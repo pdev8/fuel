@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.6.4.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.6.4\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -234,6 +237,7 @@
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\Controllers\UserProfileController.js" />
     <Content Include="Scripts\Controllers\UserRoleController.js" />
+    <Content Include="Scripts\Controllers\WebScraperController.js" />
     <Content Include="Scripts\grayscale.js" />
     <Content Include="Scripts\grayscale.min.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
@@ -255,10 +259,12 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Views\ModelHTML.html" />
     <Content Include="Services\ClientService.js" />
     <Content Include="Services\TrainerService.js" />
     <Content Include="Services\UserProfileService.js" />
     <Content Include="Services\UserRoleService.js" />
+    <Content Include="Services\WebScraperService.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

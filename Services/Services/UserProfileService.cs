@@ -66,9 +66,10 @@ namespace Fuel.Services.Services
                 }
             };
 
-            Adapter.ExecuteQuery(cmdDef, delegate (IDataParameterCollection collection)
+            Adapter.ExecuteQuery(cmdDef, delegate (IDbDataParameter[] collection)
             {
-                Int32.TryParse(collection["@Id"].ToString(), out id);
+                //Int32.TryParse(collection["@Id"].ToString(), out id);
+                id = collection.GetParmValue<Int32>("@Id");
             });
 
             return id;

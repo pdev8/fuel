@@ -130,7 +130,7 @@ namespace Fuel.Data.Adapter
         }
 
         // Insert, Update, Delete
-        public int ExecuteQuery(IDbCmdDef cmdDef, Action<IDataParameterCollection> returnParameters = null)
+        public int ExecuteQuery(IDbCmdDef cmdDef, Action<IDbDataParameter[]> returnParameters = null)
         {
             try
             {
@@ -151,7 +151,7 @@ namespace Fuel.Data.Adapter
 
                     int returnVal = cmd.ExecuteNonQuery();
                     // If it exists, do this this
-                    returnParameters?.Invoke(cmd.Parameters);
+                    returnParameters?.Invoke(cmdDef.DbParameters);
 
                     return returnVal;
                 }
