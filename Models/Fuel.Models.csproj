@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\TrainingLog.cs" />
     <Compile Include="Domain\UserProfile.cs" />
     <Compile Include="Domain\UserRole.cs" />
     <Compile Include="Domain\Client.cs" />
@@ -49,6 +50,8 @@
     <Compile Include="Request\ClientUpdateRequest.cs" />
     <Compile Include="Request\TrainerAddRequest.cs" />
     <Compile Include="Request\TrainerUpdateRequest.cs" />
+    <Compile Include="Request\TrainingLogAddRequest.cs" />
+    <Compile Include="Request\TrainingLogUpdateRequest.cs" />
     <Compile Include="Request\UserProfileAddRequest.cs" />
     <Compile Include="Request\UserProfileUpdateRequest.cs" />
     <Compile Include="Request\UserRoleAddRequest.cs" />
