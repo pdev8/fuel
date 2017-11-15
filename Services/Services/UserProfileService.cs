@@ -60,7 +60,8 @@ namespace Fuel.Services.Services
                     SqlDbParameter.Instance.BuildParameter("@FirstName", model.FirstName, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@LastName", model.LastName, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Email", model.Email, SqlDbType.NVarChar),
-                    SqlDbParameter.Instance.BuildParameter("@UserRoleId", model.UserRoleId, SqlDbType.Int),
+                    //SqlDbParameter.Instance.BuildParameter("@UserRoleId", model.UserRoleId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@UserRole", model.UserRole, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@ProfileImageUrl", model.ProfileImageUrl, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Id", id, SqlDbType.Int, paramDirection: ParameterDirection.Output)
                 }
@@ -87,7 +88,8 @@ namespace Fuel.Services.Services
                     SqlDbParameter.Instance.BuildParameter("@FirstName", model.FirstName, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@LastName", model.LastName, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Email", model.Email, SqlDbType.NVarChar),
-                    SqlDbParameter.Instance.BuildParameter("@UserRoleId", model.UserRoleId, SqlDbType.Int),
+                    SqlDbParameter.Instance.BuildParameter("@UserRole", model.UserRole, SqlDbType.NVarChar),
+                    //SqlDbParameter.Instance.BuildParameter("@UserRoleId", model.UserRoleId, SqlDbType.Int),
                     SqlDbParameter.Instance.BuildParameter("@ProfileImageUrl", model.ProfileImageUrl, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Id", model.Id, SqlDbType.Int)
                 }

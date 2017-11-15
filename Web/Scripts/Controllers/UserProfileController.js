@@ -11,7 +11,11 @@
         vm.postUserProfile = _postUserProfile;
         vm.updateUserProfile = _updateUserProfile;
         vm.deleteUserProfile = _deleteUserProfile;
-        
+
+        vm.Submit = _submit;
+
+        vm.arrayWeeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
         vm.model = {};
 
         vm.$onInit = _init;
@@ -19,6 +23,15 @@
         function _init() {
             console.log("User profile controller loading");
         }
+
+        function _submit() {
+
+
+
+            // clear form
+            vm.model = {};
+        }
+        
 
         function _getAllUserProfiles() {
             userProfileService.GetAllUserProfiles()
@@ -31,7 +44,7 @@
         }
 
         function _getUserProfile() {
-            userProfileService.GetUserProfileById()
+            userProfileService.GetUserProfileById(id)
                 .then(function (data) {
                     console.log(data);
                 })
@@ -41,7 +54,7 @@
         }
 
         function _postUserProfile() {
-            userProfileService.CreateUserProfile()
+            userProfileService.CreateUserProfile(vm.model)
                 .then(function (data) {
                     console.log(data);
                 })
@@ -52,7 +65,7 @@
         }
 
         function _updateUserProfile() {
-            userProfileService.EditUserProfile()
+            userProfileService.EditUserProfile(vm.model)
                 .then(function (data) {
                     console.log(data);
                 })
@@ -63,7 +76,7 @@
         }
 
         function _deleteUserProfile() {
-            userProfileService.DeleteUserProfile()
+            userProfileService.DeleteUserProfile(id)
                 .then(function (data) {
                     console.log(data);
                 })
