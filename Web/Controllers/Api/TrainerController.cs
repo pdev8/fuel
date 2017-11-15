@@ -122,10 +122,19 @@ namespace Fuel.Web.Controllers.Api
 
                 //var content = p.InnerText;
 
+
                 var p = root.Descendants()
                     .Where(n => n.GetAttributeValue("class", "").Equals("pg-headline")).Single();
 
                 var content = p.InnerText;
+
+                //var p = root.Descendants()
+                //    .Where(n => n.GetAttributeValue("class", "").Equals("ratingValue")).Single()
+                //    .Descendants("span")
+                //    .Where(n => n.GetAttributeValue("itemprop", "").Equals("ratingValue"))
+                //    .Single();
+
+                //var content = p.InnerText;
 
                 return Request.CreateResponse(HttpStatusCode.OK, content);
             }
