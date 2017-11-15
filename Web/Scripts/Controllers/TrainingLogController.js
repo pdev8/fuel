@@ -108,15 +108,9 @@
                     // return program object of Id, Week, SquatMax, etc.
                     vm.model = data.Item;
                     console.log(vm.model);
-                    //vm.squatProgram = vm.model.SquatProgram;
-
-                    //vm.benchProgram = vm.model.BenchProgram;
-
-                    //vm.deadliftProgram = vm.model.DeadliftProgram;
 
                     _calculateProgram();
 
-                    //vm.showGetRightDiv = true;
                     vm.showNewRightDiv = true;
                 })
                 .catch(function (err) {
@@ -141,7 +135,6 @@
                     console.log('edit button clicked');
 
                     _calculateProgram();
-                    //vm.showGetRightDiv = true;
                     vm.showNewRightDiv = true;
                     console.log(data);
                 })
@@ -157,7 +150,6 @@
                     console.log(data);
                     vm.model = {};
                     vm.showNewRightDiv = false;
-                    //vm.showGetRightDiv = false;
 
                 })
                 .catch(function (err) {
